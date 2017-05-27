@@ -56,22 +56,20 @@ In addition to issues related to companies and their employees, there are also o
 There are no simple answers to these questions. As both hackers and security professionals get more sophisticated, it’s increasingly important to address these core issues related to cyber-security. Both businesses and governments must find ways to balance security with ethics and privacy concerns.
 Some Mitigation Aspects for Organizations That Can Be Affected
 On the one hand, ransomware can be very scary – the encrypted files can essentially be considered damaged beyond repair. But if you have properly prepared your system, it is really nothing more than a nuisance. Here are a few tips that will help you keep ransomware from wrecking your day:
-
- #### Back up your data
+### Back up your data
 
 The single biggest thing that will defeat ransomware is having a regularly updated backup. If you are attacked with ransomware you may lose that document you started earlier this morning, but if you can restore your system to an earlier snapshot or clean up your machine and restore your other lost documents from backup, you can rest easy. Remember that Cryptolocker will also encrypt files on drives that are mapped. This includes any external drives such as a USB thumb drive, as well as any network or cloud file stores that you have assigned a drive letter. So, what you need is a regular backup regimen, to an external drive or backup service, one that is not assigned a drive letter or is disconnected when it is not doing backup.
 The next three tips are meant to deal with how Cryptolocker has been behaving – this may not be the case forever, but these tips can help increase your overall security in small ways that help prevent against a number of different common malware techniques.
 #### Show hidden file-extensions
 
 One way that Cryptolocker frequently arrives is in a file that is named with the extension “.PDF.EXE”, counting on Window’s default behavior of hiding known file-extensions. If you re-enable the ability to see the full file-extension, it can be easier to spot suspicious files.
- #### Filter EXEs in email
+### Filter EXEs in email
 
 If your gateway mail scanner has the ability to filter files by extension, you may wish to deny mails sent with “.EXE” files, or to deny mails sent with files that have two file extensions, the last one being executable (“*.*.EXE” files, in filter-speak). If you do legitimately need to exchange executable files within your environment and are denying emails with “.EXE” files, you can do so with ZIP files (password-protected, of course) or via cloud services.
 #### Disable files running from AppData/LocalAppData folders
 
 You can create rules within Windows or with Intrusion Prevention Software, to disallow a particular, notable behavior used by Cryptolocker, which is to run its executable from the App Data or Local App Data folders. If (for some reason) you have legitimate software that you know is set to run not from the usual Program Files area but the App Data area, you will need to exclude it from this rule.
-
- #### Use the Cryptolocker Prevention Kit
+### Use the Cryptolocker Prevention Kit
 
 The Cryptolocker Prevention Kit is a tool created by Third Tier that automates the process of making a Group Policy to disable files running from the App Data and Local App Data folders, as well as disabling executable files from running from the Temp directory of various unzipping utilities. This tool is updated as new techniques are discovered for Cryptolocker, so you will want to check in periodically to make sure you have the latest version. If you need to create exemptions to these rules, they provide this document that explains that process.
 
