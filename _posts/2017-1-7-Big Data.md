@@ -1,8 +1,10 @@
 ---
 published: true
 ---
-#### Big Data
-### Introduction 
+---
+title: Big Data Today
+---
+### _Introduction_ 
  Big data is a blanket term for the non-traditional strategies and technologies needed to gather, organize, process, and gather insights from large datasets. While the problem of working with data that exceeds the computing power or storage of a single computer is not new, the pervasiveness, scale, and value of this type of computing has greatly expanded in recent years.
 In this article, we will talk about big data on a fundamental level and define common concepts you might come across while researching the subject. I will also take a high-level look at some of the processes and technologies currently being used in this space.
 
@@ -21,12 +23,12 @@ Fortunately Boston’s Office of New Urban Mechanics is aware of this problem, a
 Big data’s signal problems won’t disappear as the use of smartphones and other digital technologies increases. As the geographers Michael Crutcher and Matthew Zook noted after Hurricane Katrina, technologies are always differentially adopted, and “any divide in accessing digital technology is not a one-time event but a constantly moving target as new devices, software and cultural practices emerge.” As we move into an era in which personal devices are seen as proxies for public needs, we run the risk that already existing inequities will be further entrenched. Thus, with every big data set, we need to ask which people are excluded. Which places are less visible? What happens if you live in the shadow of big data sets?
 This points to the next frontier: how to address these weaknesses in big data science. In the near term, data scientists should take a page from social scientists, who have a long history of asking where the data they’re working with comes from, what methods were used to gather and analyze it, and what cognitive biases they might bring to its interpretation (for more, see “Raw Data is an Oxymoron“). Longer term, we must ask how we can bring together big data approaches with small data studies — computational social science with traditional qualitative methods. We know that data insights can be found at multiple levels of granularity, and by combining methods such as ethnography with analytics, or conducting semi-structured interviews paired with information retrieval techniques, we can add depth to the data we collect. We get a much richer sense of the world when we ask people the why and the how not just the “how many”. This goes beyond merely conducting focus groups to confirm what you already want to see in a big data set. It means complementing data sources with rigorous qualitative research. Social science methodologies may make the challenge of understanding big data more complex, but they also bring context-awareness to our research to address serious signal problems. Then we can move from the focus on merely “big” data towards something more three-dimensional: 
 
-###### Technologies that have been born because of Big Data
+### Technologies that have been born because of Big Data
 The bubble around Big Data has certainly started to burst and the coming year awaits reasonable developments in the applications of the Big Data world. Well, most of us are now more than familiar with terms like Hadoop, Spark, NO-SQL, Hive, Cloud etc. We know there are at least 20 NO-SQL databases and a number of other Big Data solutions emerging every month. But which of these technologies see prospects going forward? Which technologies are going to fetch you big benefits?
 With the year coming to an end, this is a good time to make some predictions on how the Big Data industry will shape up. In this article, I have listed the top 5 technologies to emerge/advance in Big Data in the coming year based upon how Big Data has been doing so far and the upcoming industry trend.
 
 
-### 1. Hadoop will continue to rock
+#### 1. Hadoop will continue to rock
 Hadoop has been widely adopted by enterprises for their data warehouse needs in the past year. The trend seems to continue and grow in the coming year as well. Companies that have not explored Hadoop so far will most likely see its advantages and applications.
 In terms of the technological developments, Hadoop will come up with features that would make it more enterprise ready. Once Hadoop security projects like Sentry, Rhino etc. gain stability, Hadoop’s implementation will expand across many more sectors and companies can use the solutions without much of security concerns.
 
@@ -35,9 +37,9 @@ All the companies by now have the data and know how to store and process Big Dat
 #### 3. Cloud solutions will power Big Data solutions
 With Internet of Things (IOT) taking front seat, data generation is on its increase. Applications involving IOT will require a perfect scalable solution for managing huge volumes of Data. What other than cloud services can do this better? Advantages of Hadoop on cloud has already been realized by many organizations and technologies pertaining to the coupling of Big Data technologies like Hadoop, Spark, IOT and cloud is expected to be well on rise in the coming year as well.
  
-### 4. Traditional Database world will revolutionize
+#### 4. Traditional Database world will revolutionize
 RDBMS systems have been dominating the database world for decades when structured data formed the major proportion of data in any organization. Looking at the data sources today – Social media data, IOT, sensors etc. – where each one of us is generating volumes of data on a daily basis, it’s clear that the amount of unstructured data is steadily increasing and companies have started realizing the potential insights one can gain from such data. Well, now to manage and process such data NO-SQL databases have been the best option in the last few years. Well, this trend will continue to grow. Applications on NO-SQL databases that were mostly POCs are expected to move into deployment phase. The most popular No-SQL databases like MongoDB, Cassandra will continue to be implemented by more vendors. Also graph databases like Neo4j will gain more market.
-### 5. Self-Service Big Data applications will emerge
+#### 5. Self-Service Big Data applications will emerge
 
 Applications that simplify data cleaning, data preparation and data exploration tasks is expected to increase. Tools like Tableau with Hadoop has seen increasing popularity in that last 2 years. These products will greatly minimize the effort of the end-users. Companies like Informatics have already shown innovations in this frontier. We can see more such products and more companies working towards such self-service solutions.
 To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.
