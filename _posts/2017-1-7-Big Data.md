@@ -43,7 +43,7 @@ RDBMS systems have been dominating the database world for decades when structure
 #### 5. Self-Service Big Data applications will emerge
 
 Applications that simplify data cleaning, data preparation and data exploration tasks is expected to increase. Tools like Tableau with Hadoop has seen increasing popularity in that last 2 years. These products will greatly minimize the effort of the end-users. Companies like Informatics have already shown innovations in this frontier. We can see more such products and more companies working towards such self-service solutions.
-To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.</div>
+To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.
 
 ```diff
 - ### References
