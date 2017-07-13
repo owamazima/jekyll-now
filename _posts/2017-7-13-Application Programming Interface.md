@@ -23,3 +23,11 @@ When you retrieve a resource using a Web browser, you’re really retrieving a r
 <div style="text-align: justify">The Web platform also comes with a standard communication protocol – HTTP – for interacting with resources and their representations.  HTTP defines a standard set of methods, status codes, and headers for interacting with resources on the Web. Figure 1 describes the most commonly used HTTP methods, their semantics, and whether they’re defined to be safe and idempotent .
 The GET method allows you to retrieve a resource representation, while PUT allows you to create or update a resource with the supplied representation, and DELETE allows you to delete a resource. In short, GET, PUT, and DELETE provide basic CRUD operations (create, retrieve, update, and delete) for the Web. HEAD and OPTIONS, on the other hand, provide the ability to retrieve resource metadata, allowing you to discover out how to interact with resources at run time.
 Say we have a resource representing a course description at Pluralsight. You’d issue a GET request to retrieve the course description from a particular URI. If you wanted to update the course description with some changes, you’d issue a PUT request to the same URI supplying the modified course description. If you PUT the course description to a new URI, you’d effectively be creating a new course description resource. And, of course, you’d delete a course description by issuing a DELETE request.</div>
+
+Method | Description |Safe |Idempotent
+------------ | -------------
+GET | Requests a specific representation of a resource|Yes|Yes
+PUT | Create or update a resource with the supplied representation|No|Yes
+DELETE | Deletes the specified resource|No|Yes
+POST | Submits data to be processed by the identified resource|No|No
+
