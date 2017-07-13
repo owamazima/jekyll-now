@@ -1,8 +1,10 @@
 ---
 published: true
 ---
----
-title: Big Data Today
+```diff
++ Big Data Today
+```
+
 ---
 ### _Introduction_ 
  Big data is a blanket term for the non-traditional strategies and technologies needed to gather, organize, process, and gather insights from large datasets. While the problem of working with data that exceeds the computing power or storage of a single computer is not new, the pervasiveness, scale, and value of this type of computing has greatly expanded in recent years.
@@ -44,7 +46,10 @@ RDBMS systems have been dominating the database world for decades when structure
 Applications that simplify data cleaning, data preparation and data exploration tasks is expected to increase. Tools like Tableau with Hadoop has seen increasing popularity in that last 2 years. These products will greatly minimize the effort of the end-users. Companies like Informatics have already shown innovations in this frontier. We can see more such products and more companies working towards such self-service solutions.
 To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.
 
-### References
+```diff
+- ### References
+```
+
 "The World’s Technological Capacity to Store, Communicate, and Compute Information". MartinHilbert.net. Retrieved 13 April 2016.
 2.	 boyd, dana; Crawford, Kate (September 21, 2011). "Six Provocations for Big Data". Social Science Research Network: A Decade in Internet Time: Symposium on the Dynamics of the Internet and Society. doi:10.2139/ssrn.1926431.
 3.	"Data, data everywhere". The Economist. 25 February 2010. Retrieved 9 December 2012.
