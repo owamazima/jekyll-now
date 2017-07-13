@@ -48,7 +48,7 @@ To summarize, Big Data is still very much on rise with more adoptions and more a
 ```diff
 - ### References
 ```
-
+_
 "The World’s Technological Capacity to Store, Communicate, and Compute Information". MartinHilbert.net. Retrieved 13 April 2016.
 2.	 boyd, dana; Crawford, Kate (September 21, 2011). "Six Provocations for Big Data". Social Science Research Network: A Decade in Internet Time: Symposium on the Dynamics of the Internet and Society. doi:10.2139/ssrn.1926431.
 3.	"Data, data everywhere". The Economist. 25 February 2010. Retrieved 9 December 2012.
@@ -58,7 +58,7 @@ To summarize, Big Data is still very much on rise with more adoptions and more a
 7.	Segaran, Toby; Hammerbacher, Jeff (2009). Beautiful Data: The Stories Behind Elegant Data Solutions. O'Reilly Media. p. 257. ISBN 978-0-596-15711-1.
 8.	^ Hilbert, Martin; López, Priscila (2011). "The World's Technological Capacity to Store, Communicate, and Compute Information". Science. 332 (6025): 60–65. PMID 21310967. doi:10.1126/science.1200970.
 9.	"IBM What is big data? – Bringing big data to the enterprise". www.ibm.com. Retrieved 2013-08-26.
-10.	Oracle and FSN, "Mastering Big Data: CFO Strategies to Transform Insight into Opportunity", December 2012
+10.	Oracle and FSN, "Mastering Big Data: CFO Strategies to Transform Insight into Opportunity", December 2012_
 
 
 
