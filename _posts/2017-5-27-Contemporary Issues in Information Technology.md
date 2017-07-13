@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-<span style="color:red"> *THE GENESIS AND NATURE OF RANSOMWARE*</span>
+<span style="color:blue"> *The Genesis and Nature of Ransomware*</span>
 ### _Introduction_
 <div style="text-align: justify"> It may be difficult to imagine, but the first ransomware in history emerged in 1989 (that’s 27 years ago). It was called the AIDS Trojan, whose modus operandi seems crude nowadays. It spread via floppy disks and involved sending $189 to a post office box in Panama to pay the ransom.
 As cyber criminals moved from cyber vandalism to cyber-crime as a business, ransomware emerged as the go-to malware to feed the money-making machine.
@@ -39,6 +39,7 @@ Instead of encrypting files one by one and then presenting the unfortunate user 
 #### Dogspectus
 <div style="text-align: justify">It isn't just Windows PCs that are at risk of ransomware. Smartphones are increasingly being targeted, regardless of the more walled garden nature of mobile operating systems.
 Dogspectus, according to security company Blue Coat Systems, targets ageing Android devices and can infect with no user stupidity required.</div>
+
  #### CryptXXX 3.0
 <div style="text-align: justify">Ransomware is now being bundled into exploit kits, and security researchers tend to keep track not only of the botnets that propagate malware, but the exploit kits used by cyber scammers.</div>
 
