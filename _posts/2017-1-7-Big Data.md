@@ -4,8 +4,7 @@ published: true
 ```diff
 + Big Data Today
 ```
-
----
+<div style="text-align: right">  
 ### _Introduction_ 
  Big data is a blanket term for the non-traditional strategies and technologies needed to gather, organize, process, and gather insights from large datasets. While the problem of working with data that exceeds the computing power or storage of a single computer is not new, the pervasiveness, scale, and value of this type of computing has greatly expanded in recent years.
 In this article, we will talk about big data on a fundamental level and define common concepts you might come across while researching the subject. I will also take a high-level look at some of the processes and technologies currently being used in this space.
@@ -44,7 +43,7 @@ RDBMS systems have been dominating the database world for decades when structure
 #### 5. Self-Service Big Data applications will emerge
 
 Applications that simplify data cleaning, data preparation and data exploration tasks is expected to increase. Tools like Tableau with Hadoop has seen increasing popularity in that last 2 years. These products will greatly minimize the effort of the end-users. Companies like Informatics have already shown innovations in this frontier. We can see more such products and more companies working towards such self-service solutions.
-To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.
+To summarize, Big Data is still very much on rise with more adoptions and more applications of the existing technologies and launch of newer solutions related to Big Data security, Cloud integrations, data mining etc.</div>
 
 ```diff
 - ### References
