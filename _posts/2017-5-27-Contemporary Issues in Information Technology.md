@@ -1,7 +1,7 @@
 ---
 published: true
 ---
-#### THE GENESIS AND NATURE OF RANSOMWARE
+<span style="color:red"> *THE GENESIS AND NATURE OF RANSOMWARE*</span>
 ### _Introduction_
 <div style="text-align: justify"> It may be difficult to imagine, but the first ransomware in history emerged in 1989 (that’s 27 years ago). It was called the AIDS Trojan, whose modus operandi seems crude nowadays. It spread via floppy disks and involved sending $189 to a post office box in Panama to pay the ransom.
 As cyber criminals moved from cyber vandalism to cyber-crime as a business, ransomware emerged as the go-to malware to feed the money-making machine.
