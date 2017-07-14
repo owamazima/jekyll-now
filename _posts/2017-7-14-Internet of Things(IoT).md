@@ -19,9 +19,9 @@ These devices collect useful data with the help of various existing technologies
 
 As well as the expansion of Internet-connected automation into a plethora of new application areas, IoT is also expected to generate large amounts of data from diverse locations, with the consequent necessity for quick aggregation of the data, and an increase in the need to index, store, and process such data more effectively. IoT is one of the platforms of today's Smart City, and Smart Energy Management Systems.
 
-The term "the Internet of Things" was coined by Kevin Ashton of Procter & Gamble, later MIT's Auto-ID Center, in 1999.[24]</span>
+The term "the Internet of Things" was coined by Kevin Ashton of Procter & Gamble, later MIT's Auto-ID Center, in 1999.</span>
 
-## _5th generation mobile networks or 5th generation wireless systems, abbreviated 5G, are the proposed next telecommunications standards beyond the current 4G/IMT-Advanced standards.
+## 5th generation mobile networks or 5th generation wireless systems, abbreviated 5G, are the proposed next telecommunications standards beyond the current 4G/IMT-Advanced standards.
 
 <div style="text-align: justify">5G planning aims at higher capacity than current 4G, allowing a higher density of mobile broadband users, and supporting device-to-device, ultra reliable, and massive machine communications.
 
