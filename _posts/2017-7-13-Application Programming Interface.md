@@ -82,5 +82,87 @@ When it comes to identifying individual bookmarks, we have to make a decision ab
 /users/{username}/bookmarks/{id}
 </div>
 
+### _Applying the Uniform HTTP Interface_
+<div style="text-align: justify">For the publicly accessible bookmark collections and the public user profile resource, we’ll only support GET requests. You can think of these as read-only resources. We’ll return a 200 (“OK”) when the requests are successful. If the URI doesn’t identify a known user, we’ll return 404 (“Not Found”).
+The remaining resources will allow creating and modifying resources so you can think of them as read/write resources. For example, we’ll support GET, PUT, and DELETE on user account resources to replace the equivalent operations in the RPC version. We’ll use PUT to create new user accounts, GET to retrieve them, PUT (again) to update them, and DELETE to delete them.
+We can use PUT to create new user accounts because the client is the one picking the username that forms the new resource’s URI. If the client is successful, the service will return a 201 (“Created”) response. If the client attempts to use an existing username, the service will return a 401 (“Unauthorized”) response. When issuing the PUT request to create a user account, the client will provide a user account representation in the HTTP request body containing the user’s information.
+Once created, a user can retrieve her account resource by issuing a GET request to her account URI.  She can issue a PUT request to update her account resource by supplying an updated user account representation. She can also issue a DELETE request (with no representation) to delete her account. When these operations are successful, the service returns a 200 (“OK”) response. If the client attempts to update or delete a non-existent account, the service will return a 404 (“Not Found”) response.
+For individual bookmark resources, we’ll support GET, POST, PUT, and DELETE requests. If a particular bookmark is marked as private, only the owner can retrieve it, but if it’s public, anyone can retrieve it. When a user creates a new bookmark, the service is responsible for assigning it a unique bookmark Id. Hence, the client won’t know the Id to use in the URI ahead of time. So, instead of using a PUT request, we’ll have users POST bookmarks to the user’s bookmark collection resource.  The handler for the POST request will create the new bookmark, assign it an Id, and return a 201 (“Created”) to the client, specifying the URI of the new bookmark resource in the Location header.
+This explains when to use POST or PUT for creating new resources. The answer ultimately lies in who is responsible for determining the new resource’s URI. If the client is in charge, the client can use PUT to the new URI (like we did for user accounts) and the service can return a response code of 201 (“Created”). However, if the service is in charge of generating the new URI, the client should POST the new resource to a factory URI like we’ve done for bookmarks. Then, the service can return a response code of 201 (“Created”) along with the URI of the new resource in the response “Location” header.
+Once clients know the bookmark ID’s, they can issue PUT and DELETE requests to individual bookmark URIs to update and delete bookmarks. If successful, the service will return a 200 (“OK”). If the client uses a URI that doesn’t exist, the service will return a 404 (“Not Found”) response.
+Figure 5 summarizes the final design of our RESTful interface for bookmark resources, showing which HTTP methods we’ll support with each resource. We’ve been able to completely replace the functionality found in the original RPC service through HTTP’s uniform interface.</div>
+
+### _Security Considerations_
+<div style="text-align: justify">Our service requires the ability to authenticate users so we can authorize the resources and methods they’re allowed to access. For example, only authenticated users can access their own user account resources and operate on them. And only authenticated users can create new bookmarks and operate on them. If an unauthenticated user attempts to do so – or a user attempts to operate on another user’s resources – the service needs to return a 401 (“Unauthorized”) response and deny access.
+So we need to figure out how we’ll identify users in order to authenticate them. HTTP comes with some built-in authentication mechanisms, the most popular of which is basic access authentication. This is one of the most popular authentication schemes used on the Web today because it’s so easy and widely supported, but it’s also one of the most unsecure, because passwords are sent across the wire in a simple-to-decode plain text format.  One way around this is to require SSL (HTTPS) for all HTTP traffic that will be using basic authentication, thereby encrypting the pipe carrying the passwords.
+Another approach is to use digest authentication, another authentication scheme built into HTTP. Digest authentication prevents eavesdropping by never sending the password across the wire. Instead, the authentication algorithm relies on sending hash values computed from the password and other values known only by the client and server. This makes it possible for the server to recompute the hash found in an incoming message to validate that client has possession of the password.
+Here’s how it works. When a client attempts to access a protected resource, the server returns a 401 (“Unauthorized”) response to the client along with a “WWW-Authenticate” header indicating that it requires digest authentication along with some supporting data. Once the client receives this, it can generate an “Authorization” header containing the computed hash value and send an identical request back to the server including the new header. Assuming the client generates a valid “Authorization” header, the server will allow access to the resource. Digest authentication is better than basic but it’s still subject to offline dictionary and brute force attacks (unless you enforce a really strong password policy), and it’s not as widely supported by Web browsers and servers.
+Another approach is to avoid both basic and digest authentication and implement a custom authentication scheme around the “Authorization” header. Many of these schemes use a custom Hash Message Authentication Code (HMAC) approach, where the server provides the client with a user id and a secret key through some out-of-band technique (e.g., the service sends the client an e-mail containing the user id and secret key). The client will use the supplied secret key to sign all requests.
+For this approach to work, the service must define an algorithm for the client to follow when signing the requests. For example, it must outline how to canonicalize the message and which parts should be included in the HMAC signature along with the secret key. This is important because the client and service must follow the same algorithm for this to work. Once the client has generated the HMAC hash, it can include it in the “Authorization” header along with the user id:
+Authorization: skonnard:uCMfSzkjue+HSDygYB5aEg==
+When the service receives this request, it will read the “Authorization” header and split out the user id and hash value. It can find the secret for the supplied user id and perform the same HMAC algorithm on the message. If the computed hash matches the one in the message, we know the client has possession of the shared secret and is a valid user. We also know that no one has tampered with whatever parts of the message were used to compute the HMAC hash (and that could be the entire message). In order to mitigate replay attacks, we can include a timestamp in the message and include it in the hash algorithm. Then the service can reject out-of-date messages or recently seen timestamp values.
+The HMAC approach is superior to both basic and digest authentication, especially if the generated secrets are sufficiently long and random, because it doesn’t subject the password to dictionary or brute force attacks. As a result, this technique is quote common in today’s public facing RESTful services.
+For the service we’re designing, we could pick any of these techniques to authenticate users. We’ll assume an HMAC approach for our service, and that each user will be assigned a secret key through an out-of-band e-mail after creating a new user account. And for all of the non-public resources, we’ll look for a valid HMAC hash in the “Authorization” header and return a 401 (“Unauthorized”) when necessary.
+Now that we have a way for users to prove who they are, we’ll need logic to authorize their requests, in other words, to decide what they are allowed to do. For example, any authenticated or anonymous user may retrieve any public bookmark, while private bookmarks may only be retrieved by the authenticated user who owns them. We’ll see how to implementation this authorization logic later in the paper.
+Designing the Resource Representations
+Now we need to decide how we’re going to represent the resources exposed by our service. There are many different data formats commonly used to represent resources on the Web including plain text, form-encoding, HTML, XML, and JSON, not to mention the variety of different media formats used to represent images, videos, and the like. XML is probably the most popular choice for RESTful services, although JSON has been growing in popularity thanks to the Web 2.0/Ajax movement.
+XML is easier to consume in most programming languages (e.g., .NET) so it’s often the default format. However, for browser-based scenarios (which abound), the JavaScript Object Notation (JSON) is actually easier to consume because it’s a JavaScript native format. For the service we’re designing, we’ll support both XML and JSON to accommodate both client scenarios equally well.
+An important thing to think about while designing resource representations is how to define the relationships between different resources. Doing so will allow consumers to navigate the “Web” of resources exposed by your service, and even discover how to use navigate service by actually using it.
+Let’s begin by designing the XML representation for a user account. When creating a new user account, we need the user to supply only a name and e-mail address (remember, the username is represented in the URI). The following is the XML format we’ll use for creating new user accounts:
+<User>
+   <Email>aaron@pluralsight.com</Email>
+   <Name>Aaron Skonnard</Name>
+</User>
+However, when a user retrieves his user account resource, the service will supply a different representation containing a little more information, in this case an Id and a link. We’ll provide the Id that links back to this particular user resource and a link to this user’s list of public bookmarks:
+<User>
+   <Bookmarks>http://contoso.com/bookmarkservice/skonnard</Bookmarks>
+   <Email>aaron@pluralsight.com</Email>
+   <Id>http://contoso.com/bookmarkservice/skonnard</Id>
+   <Name>Aaron Skonnard</Name>
+</User>
+There may be other pieces of information that make sense only in either the request or response representations. A valid user can update this representation with a new e-mail address or a different name and PUT it back to the same URI to perform an update.
+A user’s public profile will provide yet another representation because we probably don’t want to share one user’s e-mail address with another. Here’s what we’ll use for the user profile resource:
+<UserProfile>
+   <Bookmarks>http://contoso.com/bookmarkservice/skonnard</Bookmarks>
+   <Id>http://contoso.com/bookmarkservice/skonnard</Id>
+   <Name>Aaron Skonnard</Name>
+</UserProfile>
+Now let’s turn our attention to bookmark resources. For our example, a bookmark is a pretty simple data set. When a user creates a bookmark, it must provide a title, a URL, some optional tags, and a public/private flag. We’ll support the following representation for creating new bookmarks:
+<Bookmark>
+   <Public>true</Public>
+   <Tags>REST,WCF</Tags>
+   <Title>Aaron’s Blog</Title>
+   <Url>http://pluralsight.com/aaron</Url>
+</Bookmark>
+And we’ll use a slightly enhanced representation when returning bookmark resources that includes an Id, additional information about the user who created it, and a last-modified time:
+<Bookmark>
+   <Id>http://contoso.com/bookmarkservice/users/skonnard/bookmarks/13</Id>
+   <LastModified>2008-03-12T00:00:00</LastModified>
+   <Public>true</Public>
+   <Tags>REST,WCF</Tags>
+   <Title>Aaron's Blog</Title>
+   <Url>http://pluralsight.com/aaron</Url>
+   <User>skonnard</User>
+   <UserProfile>http://contoso.com/bookmarkservice/users/skonnard/profile
+   </UserProfile>
+</Bookmark>
+A list of bookmarks will simply be represented by a <Bookmarks> element, containing a list of child <Bookmark> elements as shown here:
+<Bookmarks>
+   <Bookmark>
+      <Id>http://contoso.com/bookmarkservice/users/skonnard/bookmarks/13</Id>
+      <LastModified>2008-03-12T00:00:00</LastModified>
+      <Public>true</Public>
+      <Tags>REST,WCF</Tags>
+      <Title>Aaron's Blog</Title>
+      <Url>http://pluralsight.com/aaron</Url>
+      <User>skonnard</User>
+      <UserProfile>http://contoso.com/bookmarkservice/users/skonnard/profile
+      </UserProfile>
+   </Bookmark>
+  <Bookmark>...</Bookmark>
+  <Bookmark>...</Bookmark>
+</Bookmarks>
+These representations make is possible to navigate between different types of resources, and they are simple to consume in any programming framework that includes a simple XML API.</div>
+
 
 
