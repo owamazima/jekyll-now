@@ -1,6 +1,8 @@
-<span style="color:red"> *Data Science and Cloud Computing With Reference to Uganda*</span>
+```diff
+ <span style="color:red"> *Data Science and Cloud Computing With Reference to Uganda*</span>
+```
 ## _Data science Defined_
-<div style="text-align: justify">_Also known as data-driven science, is an interdisciplinary field about scientific methods, processes, and systems to extract knowledge or insights from data in various forms, either structured or unstructured, similar to data mining._</div>
+<div style="text-align:justify">Also known as data-driven science, is an interdisciplinary field about scientific methods, processes, and systems to extract knowledge or insights from data in various forms, either structured or unstructured, similar to data mining._</div>
 
 ## _Cloud computing_
 <div style="text-align: justify">
