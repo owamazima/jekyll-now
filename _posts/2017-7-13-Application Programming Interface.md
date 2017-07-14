@@ -48,5 +48,39 @@ A system built around a uniform interface for communication provides stability b
 ### _RESTful Services_
 <div style="text-align: justify">In this section, I started from a traditional RPC-based service and redesign it to become a RESTful service.  To accomplish this, first I extracted the resources that make up the existing service. Then I designed a URI scheme for identifying the resources and decide which HTTP methods they’ll support. And finally, I designed the resource representations that will be supported by each method.</div>
 
+### _Moving from Verbs to Nouns_
+<div style="text-align: justify">The first step in designing a RESTful service is to identify the resources the service will expose. From inspecting the operations in Figure 3, it looks like there are just a few resources in play:
+*Users
+*Bookmarks
+However, we need to get a little more specific than this since we’ll need the ability to operate on individual bookmarks as well as different collections of bookmarks. After analyzing the current functionality, it’s apparent we’ll need the ability to address the following types of resources:
+*An individual user account
+*A specific user’s public profile
+*An individual bookmark
+*A user’s collection of private bookmarks
+*A user’s collection of public bookmarks
+*The collection of all public bookmarks
+You can think of these things as the “nouns” that make up the service. The original service design outlined in Figure 3 focused on “verbs” and not the underlying nouns. This is where RESTful design takes a radical turn. With REST, you focus first on the nouns first (e.g., the resources) because you’ll rely on a standard set of verbs (the uniform interface) to operate on them within the service.
+
+### _Designing the URI Templates_
+<div style="text-align: justify">Now that we’ve identified the fundamental resources that make up our service, our next task is to define identifiers for them. Since we plan to host this service on the “Web,” we’ll rely on the Web’s URI syntax for identifying these resources. 
+To keep things simple for consumers, we’ll use the service’s base address to identify the list of all public bookmarks. So if our service were hosted at http://contoso.com/bookmarkservice, we’d browse to that address to retrieve the list of all public bookmarks. Since the list of all public bookmarks can get quite large, we should probably also provide a way to filter the collection of bookmarks somehow. We can accomplish this by building additional scoping information into the URI design. For example, we can use the following query string to identify all public bookmarks marked with a particular tag:
+?tag={tag}
+In this case, the “tag” is providing additional scoping information that consumers can use to reduce the identified collection’s size. The syntax I’m using here is referred to as URI template syntax. 
+Anything within curly braces represents a variable, like tag in this case. Everything else in the URI (not enclosed within curly braces) is considered a static part of the URI. Later, when we implement the service, you’ll see how to map these URI variables to method parameters in our WCF code.
+The URI template in this case is relative to the service’s base URI. So you can identify all public bookmarks marked with the “rest” tag using http://contoso.com/bookmarkservice?tag=rest.
+We can further filter the list of public bookmarks by username. In this case, we’ll use the username as part of the path to filter the collection by user before applying the tag scoping information:
+{username}?tag={tag}
+For example, you can identify all of skonnard’s bookmarks marked with “wcf” using http://contoso.com/bookmarkservice/skonnard?tag=wcf. And you can access all of onion’s bookmarks marked with “silverlight” using http://contoso.com/bookmarkservice/onion?tag=silverlight.
+Next, let’s think about how to identify a particular user. Since we’ve already used a variable in the first path segment (for identifying a user’s public bookmarks), we’ll need to specify a literal string in that first segment to change the meaning of what comes next. For example, we can say that all URIs starting with “users” will identify a specific user. We’ll use the following templates to identify the user resources:
+/users/{username}
+/users/{username}/profile
+And we can identify a user’s complete list of bookmarks by adding “bookmarks” instead:
+/users/{username}/bookmarks
+Plus, like before, we can filter bookmarks by using “tag” scoping information:
+/users/{username}/bookmarks?tag={tag}
+When it comes to identifying individual bookmarks, we have to make a decision about how to do that. If we assign each bookmark a unique Id, we could potentially use a simpler URI template for identifying individual bookmarks based on the Id. However, since bookmarks really belong to a specific user, it might make sense to make individual bookmark identifiers relative to a particular user as shown here:
+/users/{username}/bookmarks/{id}
+</div>
+
 
 
