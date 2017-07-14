@@ -1,5 +1,5 @@
-<span style="color:"> *Data Science and Cloud Computing With Reference to Uganda*</span>
-*Data science Defined*
+<span style="color:red"> *Data Science and Cloud Computing With Reference to Uganda*</span>
+## _Data science Defined_
 <div style="text-align: justify">_Also known as data-driven science, is an interdisciplinary field about scientific methods, processes, and systems to extract knowledge or insights from data in various forms, either structured or unstructured, similar to data mining._</div>
 
 ## _Cloud computing_
@@ -7,3 +7,35 @@
 Cloud computing is a new form of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand. It is a model for enabling ubiquitous, on-demand access to a shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services), which can be rapidly provisioned and released with minimal management effort. Basically, Cloud computing allows the users and enterprises with various capabilities to store and process their data in either privately owned cloud, or on a third-party server in order to make data accessing mechanisms much more easy and reliable. Data centers that may be located far from the user–ranging in distance from across a city to across the world. Cloud computing relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid) over an electricity network.
 
 Advocates claim that cloud computing allows companies to avoid up-front infrastructure costs (e.g., purchasing servers). As well, it enables organizations to focus on their core businesses instead of spending time and money on computer infrastructure. Proponents also claim that cloud computing allows enterprises to get their applications up and running faster, with improved manageability and less maintenance, and enables information technology (IT) teams to more rapidly adjust resources to meet fluctuating and unpredictable business demand. Cloud providers typically use a "pay as you go" model. This will lead to unexpectedly high charges if administrators do not adapt to the cloud pricing model.</div>
+
+<span style="color:red"> *Cloud computing and big data: An ideal combination*</span>
+<div style="text-align: justify">Since its inception, information technology has been exclusively available for technology companies, large organizations, government and educational institutions. That was until the emergence of cloud computing in a process many call the “democratization” of information technology. With an ever-expanding reach to the masses, a significant reduction in cost and an abundant choice of applications available, you can be truly empowered to leverage the best of existing technology, often without spending a penny on initial investment.
+
+The democratization of information technology has not only affected the cloud space, but big data as well. Adoption of open source Hadoop is growing at a fast pace and the ability to perform analytics on non-proprietary and affordable hardware is becoming more ubiquitous.
+Along with this phenomenon, we are now witnessing an explosion of information generated through social media, messaging, emails and more. Organizations and individuals are navigating a maze of ever-increasing data that can be difficult to roam through, let alone control and dissect.
+
+This surge in the volume of data is now presenting a challenge to the cloud. Organizations have built their data architecture, storage policies and best practices mainly working with structured data, whereas the unstructured data does not fit the traditional relational database management system (RDBMS) framework. The issue is how to manipulate and extract the essence of the data rather than simply storing and retrieving it.
+
+As pointed out during IBM InterConnect 2013, businesses can get increased value from data insights gained through big data analytics supported by a cloud infrastructure. The explosion in unstructured data means that ways to harness the benefits of hybrid cloud and big data are more important than ever. The hybrid cloud model can assist organizations in addressing security concerns in their private cloud, while leveraging the public cloud infrastructure for analytics services.
+It comes as no surprise that there has been a keen interest from government agencies, government bodies and other organizations to try and extract meaningful insight from this maze of data, whether it be security related or simply about patterns of consumers.
+On average, 2.5 billion gigabytes of data is created daily, consisting of 200 millions tweets and 30 billion pieces of content shared on Facebook each month.
+
+Looking at the available projections, the amount of data created by the year 2020 will reach a staggering 43 trillion gigabytes, with six billion people in possession of cell phones.
+Cloud computing and big data, while still in constant evolution, are proving to be the ideal combination. Together, they provide a cost effective and scalable infrastructure to support big data and business analytics.
+Now if you think big data is just hype, then think again. Consider the huge competitive advantage that can be gainedt by moving from the old model of structured data into the world of unstructured data and accessing a wealth of information sources, as well as the competitive advantage of analytics payback. What could you achieve with this new information?</div>
+
+<span style="color:red">*Why run Data Science on Cloud?*</span>
+<div style="text-align: justify">So, why do we even need to run data science on cloud? You might raise this question that if a laptop can pack 64 GB RAM, do we even need cloud for data science? And the answer is a big YES for a variety of reasons. Here are a few of them:</div>
+
+<div style="text-align: justify">**_Need to run scalable data science: Let’s  dial back a few years. In 2010, I joined a multi-national Insurance company to set up a data science unit. Among several things, we bought a server which had 16 GB RAM. Since this was a new setup, we had bought more than what we thought we would need in next 3 – 5 years. What seemed a stellar combination at the start of the journey did not scale when we hired more people in team. Not only the number of people in the team increased, the amount of data increased exponentially. With a physical server, we were stuck! Either we buy a new, more powerful server or load this one to maximum (which would have again ran out of juice). The last thing you want is that your data scientists are staring at the screen waiting for data to be processed! A machine on cloud can scale on a click of the button, with out much hassle. So your current scripts and models can easily run when the data behind the model grows multiple times</div>
+
+<div style="text-align: justify">**_Cost: While scalability is one benefit, cost is another. Let us say you need to work on a problem, which is one-off in nature, but needs a higher computational infrastructure. This could be any thing – you want to mine social media data for an annual event you have sponsored, but you want the insights in real time. You can’t really buy a new machine for that. The costs will be prohibitive. Simple, rent out a higher configuration for a few hours or days and you have solution to your problem at a fraction of the cost.</div>
+
+<span style="color:blue">Collaboration: What if you want to work simultaneously along with several data scientists? You don’t want every one to create a copy of the data and code in their local machines.</span>
+
+<div style="text-align: justify">**_Sharing: What if you want to share your piece of Python / R code with your team? The libraries you might have used may not be there or might be of the older version. How do you make sure that the code is transferable to a different machine?</div>
+
+<div style="text-align: justify">**_Larger ecosystem for machine learning system deployments: A few cloud services like AWS, Azure provide complete ecosystem to collect data, run your models and then deploy them. In case of physical machine, you will need to set this up yourself.</div>
+
+<div style="text-align: justify">**_Use for building quick prototypes: A number of times, you get ideas while you are on the move or when you are discussing some thing with your friends. In these scenarios, it is much easier to use the out of the box services on the cloud. You can quickly build prototypes with out worrying about versions and scalability. Once you have proven the concept, you can always build a production stack later.</div>
+
