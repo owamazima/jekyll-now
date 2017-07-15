@@ -19,7 +19,7 @@ These devices collect useful data with the help of various existing technologies
 
 As well as the expansion of Internet-connected automation into a plethora of new application areas, IoT is also expected to generate large amounts of data from diverse locations, with the consequent necessity for quick aggregation of the data, and an increase in the need to index, store, and process such data more effectively. IoT is one of the platforms of today's Smart City, and Smart Energy Management Systems.
 
-The term "the Internet of Things" was coined by Kevin Ashton of Procter & Gamble, later MIT's Auto-ID Center, in 1999.</span>
+The term "the Internet of Things" was coined by Kevin Ashton of Procter & Gamble, later MIT's Auto-ID Center, in 1999.</span></div>
 
 ## 5th generation mobile networks or 5th generation wireless systems, abbreviated 5G, are the proposed next telecommunications standards beyond the current 4G/IMT-Advanced standards.
 
@@ -42,3 +42,7 @@ Latency reduced significantly compared to LTE.
 In addition to providing simply faster speeds, they predict that 5G networks also will need to meet new use cases,[4] such as the Internet of Things (internet connected devices), as well as broadcast-like services and lifeline communication in times of natural disaster. Carriers, chipmakers, OEMS and OSATs, such as Advanced Semiconductor Engineering (ASE) and Amkor Technology, Inc., have been preparing for this next-generation (5G) wireless standard, as mobile systems and base stations will require new and faster application processors, basebands and RF devices.
 
 Although updated standards that define capabilities beyond those defined in the current 4G standards are under consideration, those new capabilities have been grouped under the current ITU-T 4G standards. The U.S. Federal Communications Commission (FCC) approved the spectrum for 5G, including the 28 Gigahertz, 37 GHz and 39 GHz bands, on July 14, 2016.</div>
+
+<span style="color:red">Mobile Computing</span>The IoT trends driving enterprise digital transformation</span>
+
+<div style="text-align: justify">Enterprises are driving the Internet of Things transformation. Consumer products such as wearables and connected electronics certainly garner a large part of the market, but IDC estimates more than 80 percent of IoT spend through 2020 will be on B2B applications and use cases. The Internet of Things will be one of the primary drivers of the digital transformation that enterprises will undergo in the coming years, creating a self-learning environment that will drive digital disruption in physical world. IoT will be a critical piece of this transformation as it allows new business models to emerge and enables changes in work processes, productivity improvements, cost containment and enhanced customer experiences.</div>
